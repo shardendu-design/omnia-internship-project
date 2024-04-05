@@ -106,7 +106,8 @@ def awair_api_call():
         data1.update(add_new_col)
 
         List2.append(data1)
-        time.sleep(300)# call every 5 min
+        print(List2)
+        # time.sleep(300)# call every 5 min
     
 
         values = [v for k, v in List2[0].items()]
@@ -120,8 +121,8 @@ def awair_api_call():
         c_columns = ['timestamp','score','dew_point','temp','humid','abs_humid', \
                         'co2','co2_est','co2_est_baseline','voc','voc_baseline','voc_h2_raw', \
                         'voc_ethanol_raw','pm25','pm10_est','location']
-        csv_file = "data/row_data/awair_data.csv"
-        path = "data/row_data/awair_data.csv"
+        csv_file = "/Users/shardendujha/omnia-internship-project-data/awair_data.csv"
+        path = "/Users/shardendujha/omnia-internship-project-data/awair_data.csv"
         
         if os.path.exists(path):
             with open(csv_file, "a+") as add_obj:
@@ -142,8 +143,8 @@ def awair_api_call():
                 print("I/O error")
                 
         #save data as json file.
-        json_file = "data/row_data/sensor_data.json"
-        path = "data/row_data/sensor_data.json"
+        json_file = "/Users/shardendujha/omnia-internship-project-data/sensor_data.json"
+        path = "/Users/shardendujha/omnia-internship-project-data/sensor_data.json"
         if os.path.exists(path):
             with open(json_file) as s_file:
                 existing_records = json.load(s_file)
@@ -161,7 +162,7 @@ def awair_api_call():
                 json.dump(List2, f, sort_keys=True, indent=4)
     
                 
-
+        time.sleep(300)# call every 5 min
 
 if __name__ == '__main__':
 
