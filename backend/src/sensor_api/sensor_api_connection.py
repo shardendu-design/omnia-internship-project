@@ -20,7 +20,7 @@ db_user = os.getenv("DB_USER")
 db_password = os.getenv("DB_PASSWORD")
 db_name = os.getenv("DB_NAME")
 db_port = os.getenv("DB_PORT")
-
+db_host = os.getenv("DB_HOST")
 
 def awair_api_call():
 
@@ -121,8 +121,9 @@ def awair_api_call():
         c_columns = ['timestamp','score','dew_point','temp','humid','abs_humid', \
                         'co2','co2_est','co2_est_baseline','voc','voc_baseline','voc_h2_raw', \
                         'voc_ethanol_raw','pm25','pm10_est','location']
-        csv_file = "/Users/shardendujha/omnia-internship-project-data/awair_data.csv"
-        path = "/Users/shardendujha/omnia-internship-project-data/awair_data.csv"
+        
+        csv_file = os.environ.get('CSV_FILE')
+        path = os.environ.get('CSV_PATH')
         
         if os.path.exists(path):
             with open(csv_file, "a+") as add_obj:
@@ -143,8 +144,8 @@ def awair_api_call():
                 print("I/O error")
                 
         #save data as json file.
-        json_file = "/Users/shardendujha/omnia-internship-project-data/sensor_data.json"
-        path = "/Users/shardendujha/omnia-internship-project-data/sensor_data.json"
+        json_file = os.environ.get('JSON_FILE')
+        path = os.environ.get('JSON_PATH')
         if os.path.exists(path):
             with open(json_file) as s_file:
                 existing_records = json.load(s_file)
